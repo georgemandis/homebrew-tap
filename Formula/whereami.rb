@@ -1,26 +1,26 @@
 class Whereami < Formula
   desc "Get your current location from the command line using native OS APIs"
   homepage "https://github.com/georgemandis/whereami"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/whereami/releases/download/v0.1.0/whereami-v0.1.0-macos-aarch64.tar.gz"
-      sha256 "1b926ee18b72c65a2049a385bc7507ea39ddd2c3811afe237142a6b425bf72ed"
+      url "https://github.com/georgemandis/whereami/releases/download/v0.2.0/whereami-v0.2.0-macos-aarch64.tar.gz"
+      sha256 "2002a74da29b345f0b6b5b5021d5c9979b177ad99df80c7451fed3f8a150d8a4"
     else
-      url "https://github.com/georgemandis/whereami/releases/download/v0.1.0/whereami-v0.1.0-macos-x86_64.tar.gz"
-      sha256 "4ea4992acbbf36d47afef6465243a508baab138e3eb28cbb3ca0eedf1c2f9cb2"
+      url "https://github.com/georgemandis/whereami/releases/download/v0.2.0/whereami-v0.2.0-macos-x86_64.tar.gz"
+      sha256 "306e632bc124d47b20a69c31ed8aa818bcd150c7f3e07ce8628a94261cf88acb"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/whereami/releases/download/v0.1.0/whereami-v0.1.0-linux-aarch64.tar.gz"
-      sha256 "648878dc048f227119bfc24f8b81911ef52ebc145d37bbefeafd218173c850f5"
+      url "https://github.com/georgemandis/whereami/releases/download/v0.2.0/whereami-v0.2.0-linux-aarch64.tar.gz"
+      sha256 "53000e8bfd5579ed574a561c5e0c4bda62d9944d9d3e96b8f5ca39f3c1a3047d"
     else
-      url "https://github.com/georgemandis/whereami/releases/download/v0.1.0/whereami-v0.1.0-linux-x86_64.tar.gz"
-      sha256 "8f6b9deceb46b5e08cccf2a684928517f16cfccf6be11fbafa01d6e1ec86eda8"
+      url "https://github.com/georgemandis/whereami/releases/download/v0.2.0/whereami-v0.2.0-linux-x86_64.tar.gz"
+      sha256 "31873ef4e0ef3f7ef90463ea0b1ccebd751bd557ef768b8f2fb10f26ba42500f"
     end
   end
 
