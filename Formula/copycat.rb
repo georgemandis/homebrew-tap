@@ -26,11 +26,6 @@ class Copycat < Formula
 
   def install
     bin.install "copycat"
-    # Remove the shared library from the staging area so Homebrew doesn't
-    # try to fix its linkage. Zig's minimal Mach-O headers lack room for
-    # install_name_tool rewriting. FFI users can grab the library from
-    # the GitHub release archive directly.
-    rm Dir["libcopycat.*"]
   end
 
   test do
