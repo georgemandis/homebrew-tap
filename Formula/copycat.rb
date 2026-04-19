@@ -26,11 +26,6 @@ class Copycat < Formula
 
   def install
     bin.install "copycat"
-    if OS.mac?
-      lib.install "libcopycat.dylib"
-    else
-      lib.install "libcopycat.so"
-    end
   end
 
   test do
