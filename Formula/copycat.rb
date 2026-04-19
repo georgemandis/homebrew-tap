@@ -26,12 +26,11 @@ class Copycat < Formula
 
   def install
     bin.install "copycat"
-    # The shared library is in the archive for FFI users who download directly,
-    # but we skip installing it via Homebrew because Zig's minimal Mach-O
-    # headers don't have room for Homebrew's install_name_tool rewriting.
-    # Remove it so Homebrew doesn't try to fix its linkage.
-    (buildpath/"libcopycat.dylib").unlink if (buildpath/"libcopycat.dylib").exist?
-    (buildpath/"libcopycat.so").unlink if (buildpath/"libcopycat.so").exist?
+    # Remove the shared library from the staging area so Homebrew doesn't
+    # try to fix its linkage. Zig's minimal Mach-O headers lack room for
+    # install_name_tool rewriting. FFI users can grab the library from
+    # the GitHub release archive directly.
+    rm Dir["libcopycat.*"]
   end
 
   test do
