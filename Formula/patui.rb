@@ -27,6 +27,7 @@ class Patui < Formula
 
     (bin/"patui").write <<~SH
       #!/usr/bin/env bash
+      export PATUI_CWD="$(pwd)"
       cd "#{libexec}" && exec ./patui "$@"
     SH
     chmod 0755, bin/"patui"
