@@ -7,11 +7,8 @@ class Patui < Formula
   depends_on "bun"
 
   on_macos do
-    if Hardware::CPU.arm?
+    on_arm do
       url "https://github.com/georgemandis/patui/releases/download/v0.1.0/patui-v0.1.0-macos-aarch64.tar.gz"
-      sha256 "PLACEHOLDER"
-    else
-      url "https://github.com/georgemandis/patui/releases/download/v0.1.0/patui-v0.1.0-macos-x86_64.tar.gz"
       sha256 "PLACEHOLDER"
     end
   end
