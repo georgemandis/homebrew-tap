@@ -16,7 +16,6 @@ class Loupe < Formula
 
   def install
     bin.install "loupe"
-    lib.install "libloupe.dylib"
   end
 
   test do
