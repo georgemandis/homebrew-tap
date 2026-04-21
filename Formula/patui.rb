@@ -9,17 +9,17 @@ class Patui < Formula
   on_macos do
     on_arm do
       url "https://github.com/georgemandis/patui/releases/download/v0.1.0/patui-v0.1.0-macos-aarch64.tar.gz"
-      sha256 "PLACEHOLDER"
+      sha256 "e412678b72e8ab533265d86aabb9956fb412de05c2ab874f5abc250e26896317"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/georgemandis/patui/releases/download/v0.1.0/patui-v0.1.0-linux-aarch64.tar.gz"
-      sha256 "PLACEHOLDER"
+      sha256 "953fb17963986cfcf59326841154201d1d9cd29a9b27046ce017cda63eeae7f5"
     else
       url "https://github.com/georgemandis/patui/releases/download/v0.1.0/patui-v0.1.0-linux-x86_64.tar.gz"
-      sha256 "PLACEHOLDER"
+      sha256 "3f4e10a35714ef898a07f7aa41a6b7514e166e8373afdd978a6f7eb5b4fe695c"
     end
   end
 
