@@ -7,17 +7,17 @@ class Patui < Formula
   on_macos do
     on_arm do
       url "https://github.com/georgemandis/patui/releases/download/v0.1.0/patui-v0.1.0-macos-aarch64.tar.gz"
-      sha256 "36788bd5cb6b88c93b39404c9137db5da626d392b3808ebfa25cbb76f70b35e0"
+      sha256 "8f11eb2135ff73009aa338abd9727f81cca798a2078e6e36758dd86a565cbbff"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/georgemandis/patui/releases/download/v0.1.0/patui-v0.1.0-linux-aarch64.tar.gz"
-      sha256 "8452fbe49f4ab22c26c239f867dba96422a771496564be0dd2b516b16bc61611"
+      sha256 "e803e7a616527c40c06c28ba628cae51d21c7b6b12d4f08056845b4d1b6e8bd2"
     else
       url "https://github.com/georgemandis/patui/releases/download/v0.1.0/patui-v0.1.0-linux-x86_64.tar.gz"
-      sha256 "206b3990322987788aaf7839114139378f4187fa343e82e42edde0eb7f27534c"
+      sha256 "a12347fd8b38c7827ce516b712bdc88a06e1014fb6b0e64a359744e9be1e3b4a"
     end
   end
 
