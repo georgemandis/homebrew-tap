@@ -4,7 +4,7 @@ class Patui < Formula
   version "0.1.0"
   license "MIT"
 
-  depends_on "bun"
+  depends_on "oven-sh/bun/bun"
 
   on_macos do
     on_arm do
