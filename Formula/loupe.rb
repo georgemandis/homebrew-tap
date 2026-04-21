@@ -1,16 +1,16 @@
 class Loupe < Formula
   desc "Computer vision CLI — detect faces, read text, and scan barcodes using native OS APIs"
   homepage "https://github.com/georgemandis/loupe"
-  version "0.1.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/loupe/releases/download/v0.1.0/loupe-v0.1.0-macos-aarch64.tar.gz"
-      sha256 "857c18befb144e5627818b5ad240c6e4a2a0cc16b11f5efde3391e1feb5ba693"
+      url "https://github.com/georgemandis/loupe/releases/download/v0.1.1/loupe-v0.1.1-macos-aarch64.tar.gz"
+      sha256 "766fa8b54040c0325a3c7b442f1e895a2ae883a67abaf267d85adfac1a69e5f8"
     else
-      url "https://github.com/georgemandis/loupe/releases/download/v0.1.0/loupe-v0.1.0-macos-x86_64.tar.gz"
-      sha256 "9502b00e0492675cc6477e811a4a20946d4e9f74c6d98a9b64339f858b6b3070"
+      url "https://github.com/georgemandis/loupe/releases/download/v0.1.1/loupe-v0.1.1-macos-x86_64.tar.gz"
+      sha256 "ef1c8ed41dd3da7a9de1785a222c5412f529e668af50a678b26897af0f5df078"
     end
   end
 
