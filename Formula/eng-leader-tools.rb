@@ -17,10 +17,13 @@ class EngLeaderTools < Formula
     # Symlink the eng wrapper into bin
     bin.install_symlink libexec/"eng"
 
-    # Install shell completions
-    bash_completion.install Utils.safe_popen_read(libexec/"eng", "--completions", "bash").to_s => "eng"
-    zsh_completion.install Utils.safe_popen_read(libexec/"eng", "--completions", "zsh").to_s => "_eng"
-    fish_completion.install Utils.safe_popen_read(libexec/"eng", "--completions", "fish").to_s => "eng.fish"
+    # Generate and install shell completions
+    (buildpath/"eng.bash").write Utils.safe_popen_read(libexec/"eng", "--completions", "bash")
+    (buildpath/"_eng").write Utils.safe_popen_read(libexec/"eng", "--completions", "zsh")
+    (buildpath/"eng.fish").write Utils.safe_popen_read(libexec/"eng", "--completions", "fish")
+    bash_completion.install buildpath/"eng.bash" => "eng"
+    zsh_completion.install buildpath/"_eng"
+    fish_completion.install buildpath/"eng.fish"
   end
 
   test do
