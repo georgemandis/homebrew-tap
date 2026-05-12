@@ -1,9 +1,9 @@
 class EngLeaderTools < Formula
   desc "Bash scripts for engineering leadership metrics — DORA, PR health, review load, and more"
   homepage "https://github.com/georgemandis/eng-leader-tools"
-  url "https://github.com/georgemandis/eng-leader-tools/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "606efe83705c58553bae5a3e0ae2a4bdda7049185ae2ac6e6aceee3cae42986d"
-  version "0.1.2"
+  url "https://github.com/georgemandis/eng-leader-tools/archive/refs/tags/v0.1.3.tar.gz"
+  sha256 "fa29ae0a55db5ca36ff737bc97241c42adb3cf6368565aa5625bddcbd0299966"
+  version "0.1.3"
   license "MIT"
 
   depends_on "gh"
@@ -11,7 +11,7 @@ class EngLeaderTools < Formula
 
   def install
     # Install all scripts to libexec
-    libexec.install Dir["*.sh"]
+    libexec.install "src"
     libexec.install "eng"
 
     # Symlink the eng wrapper into bin
