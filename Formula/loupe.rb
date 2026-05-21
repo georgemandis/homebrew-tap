@@ -1,21 +1,23 @@
 class Loupe < Formula
-  desc "Computer vision CLI — detect faces, read text, and scan barcodes using native OS APIs"
+  desc "Computer vision CLI for face detection, OCR, and barcode scanning"
   homepage "https://github.com/georgemandis/loupe"
-  version "0.2.0"
+  version "0.3.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/loupe/releases/download/v0.2.0/loupe-v0.2.0-macos-aarch64.tar.gz"
-      sha256 "0df52b4113fc5c93b4512ef97669cd0e09c008fe752d459cda001c927635a710"
+      url "https://github.com/georgemandis/loupe/releases/download/v0.3.0/loupe-v0.3.0-macos-aarch64.tar.gz"
+      sha256 "0e9d19676ebe534abf3d21884f0af5e5303748235c912089705fbc1f6b56e743"
     else
-      url "https://github.com/georgemandis/loupe/releases/download/v0.2.0/loupe-v0.2.0-macos-x86_64.tar.gz"
-      sha256 "14c20103fbd55631e72bce22f17ccf347365d45a8b07a2ea16081efe9c289234"
+      url "https://github.com/georgemandis/loupe/releases/download/v0.3.0/loupe-v0.3.0-macos-x86_64.tar.gz"
+      sha256 "c22474e68a6d72fc5f53148d448407caad51bb0ea561d55f94f167c026016d13"
     end
   end
 
   def install
     bin.install "loupe"
+
+    generate_completions_from_executable(bin/"loupe", "completions")
   end
 
   test do
