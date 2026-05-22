@@ -1,21 +1,26 @@
 class Nearme < Formula
   desc "Search for places near you from the command line using native macOS APIs"
   homepage "https://github.com/georgemandis/nearme"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/nearme/releases/download/v0.1.0/nearme-v0.1.0-macos-aarch64.tar.gz"
-      sha256 "6e6e62540fffb008c9e894898e916b0553d6eace80930e7a47d929a78cf17db9"
+      url "https://github.com/georgemandis/nearme/releases/download/v0.2.0/nearme-v0.2.0-macos-aarch64.tar.gz"
+      sha256 "167dc47fe657f980091d444c4b8e95eaa6764777a6ec06cbdee15095018f7fe4"
     else
-      url "https://github.com/georgemandis/nearme/releases/download/v0.1.0/nearme-v0.1.0-macos-x86_64.tar.gz"
-      sha256 "56241b72e3923dc32ffe8a66ba37e2f69f448cb3e9c1386de6c0e201cce2db73"
+      url "https://github.com/georgemandis/nearme/releases/download/v0.2.0/nearme-v0.2.0-macos-x86_64.tar.gz"
+      sha256 "8fa8ace28fe4de6f5402bbfafa9631105ff5da14c3dc445bd4e605ff9d0535d3"
     end
   end
 
   def install
     bin.install "nearme"
+
+    # Generate and install shell completions
+    bash_completion.install Utils.safe_popen_read(bin/"nearme", "--completions=bash").to_s => "nearme"
+    zsh_completion.install Utils.safe_popen_read(bin/"nearme", "--completions=zsh").to_s => "_nearme"
+    fish_completion.install Utils.safe_popen_read(bin/"nearme", "--completions=fish").to_s => "nearme.fish"
   end
 
   test do
