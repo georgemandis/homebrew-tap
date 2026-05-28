@@ -18,9 +18,12 @@ class Nearme < Formula
     bin.install "nearme"
 
     # Generate and install shell completions
-    bash_completion.install Utils.safe_popen_read(bin/"nearme", "--completions=bash").to_s => "nearme"
-    zsh_completion.install Utils.safe_popen_read(bin/"nearme", "--completions=zsh").to_s => "_nearme"
-    fish_completion.install Utils.safe_popen_read(bin/"nearme", "--completions=fish").to_s => "nearme.fish"
+    (buildpath/"nearme.bash").write Utils.safe_popen_read(bin/"nearme", "--completions=bash")
+    (buildpath/"_nearme").write Utils.safe_popen_read(bin/"nearme", "--completions=zsh")
+    (buildpath/"nearme.fish").write Utils.safe_popen_read(bin/"nearme", "--completions=fish")
+    bash_completion.install buildpath/"nearme.bash" => "nearme"
+    zsh_completion.install buildpath/"_nearme"
+    fish_completion.install buildpath/"nearme.fish"
   end
 
   test do
