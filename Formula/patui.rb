@@ -34,6 +34,6 @@ class Patui < Formula
   end
 
   test do
-    assert_predicate bin/"patui", :exist?
+    assert_path_exists bin/"patui"
   end
 end
