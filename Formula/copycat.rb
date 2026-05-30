@@ -1,26 +1,26 @@
 class Copycat < Formula
   desc "Cross-platform clipboard CLI and C ABI library written in Zig"
   homepage "https://github.com/georgemandis/copycat"
-  version "0.3.1"
+  version "0.4.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/copycat/releases/download/v0.3.1/copycat-v0.3.1-macos-aarch64.tar.gz"
-      sha256 "2d66977a36d3e9d27063506ab1eff0b31c78c2c358eb3dae098a82c6a0b42b21"
+      url "https://github.com/georgemandis/copycat/releases/download/v0.4.0/copycat-v0.4.0-macos-aarch64.tar.gz"
+      sha256 "69446a67901d1c9b3e49adbd32304f2d8e960b5b7c8e6d7ddd42bc7031725d3e"
     else
-      url "https://github.com/georgemandis/copycat/releases/download/v0.3.1/copycat-v0.3.1-macos-x86_64.tar.gz"
-      sha256 "b6b047f580d7145f7a1c36cb943fb82252ab6319ab7d0cfa3131932a35d54f29"
+      url "https://github.com/georgemandis/copycat/releases/download/v0.4.0/copycat-v0.4.0-macos-x86_64.tar.gz"
+      sha256 "8f55ff8ac8f53e8ebfbb39c7936ec95e5a02e058568febc76120e978e0e45ce9"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/copycat/releases/download/v0.3.1/copycat-v0.3.1-linux-aarch64.tar.gz"
-      sha256 "5c02c5889a27db9a9b43908db168ebdd58489053af89aa833745cc409df4e70d"
+      url "https://github.com/georgemandis/copycat/releases/download/v0.4.0/copycat-v0.4.0-linux-aarch64.tar.gz"
+      sha256 "f0114c9799704f3a549fb3e9b58b5d9978073f8dc1afa2a89bad349bd8377da7"
     else
-      url "https://github.com/georgemandis/copycat/releases/download/v0.3.1/copycat-v0.3.1-linux-x86_64.tar.gz"
-      sha256 "d7f1c16acc1e41b08ef4de697a42d5b6804091f503960aa37c6c027a6ef82bc3"
+      url "https://github.com/georgemandis/copycat/releases/download/v0.4.0/copycat-v0.4.0-linux-x86_64.tar.gz"
+      sha256 "0d2b5708fd0c1dc363eef0a620f4f2238617d223de47ded80e5a1f4b89c54291"
     end
   end
 
