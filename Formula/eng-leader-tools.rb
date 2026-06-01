@@ -1,9 +1,9 @@
 class EngLeaderTools < Formula
   desc "Bash scripts for engineering leadership metrics — DORA, PR health, review load, and more"
   homepage "https://github.com/georgemandis/eng-leader-tools"
-  url "https://github.com/georgemandis/eng-leader-tools/archive/refs/tags/v0.1.3.tar.gz"
-  sha256 "fa29ae0a55db5ca36ff737bc97241c42adb3cf6368565aa5625bddcbd0299966"
-  version "0.1.3"
+  url "https://github.com/georgemandis/eng-leader-tools/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "7beb2ad7c34d7cc4f85836f4b169e0ae1148cbdf53a075ae37fa4a7daab7b561"
+  version "0.2.0"
   license "MIT"
 
   depends_on "gh"
