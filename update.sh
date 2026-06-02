@@ -43,8 +43,8 @@ update_formula() {
   tmpdir=$(mktemp -d)
   gh release download "$latest" --repo "$repo" --dir "$tmpdir" --pattern "*.tar.gz" 2>/dev/null || true
 
-  # Update version string and all URLs (old version → new version)
-  sed -i '' "s/$current/$latest_version/g" "$rb"
+  # Update version string and URLs (skip sha256 lines to avoid corrupting hashes)
+  sed -i '' "/sha256/!s/$current/$latest_version/g" "$rb"
 
   # Update sha256 hashes by matching each downloaded asset to its URL line
   for asset in "$tmpdir"/*.tar.gz; do
