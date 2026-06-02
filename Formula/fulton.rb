@@ -28,6 +28,20 @@ class Fulton < Formula
     bin.install "fulton"
   end
 
+  def caveats
+    on_linux do
+      <<~EOS
+        On Wayland, fulton needs permission to read keyboard input devices.
+        Add your user to the input group (recommended):
+
+          sudo usermod -aG input $USER
+
+        Then log out and back in for the change to take effect.
+        Run `fulton --setup` for more options.
+      EOS
+    end
+  end
+
   test do
     assert_match "Usage: fulton", shell_output("#{bin}/fulton --help")
   end
