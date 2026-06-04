@@ -1,26 +1,26 @@
 class Fulton < Formula
   desc "Cross-platform global keyboard shortcut daemon and C ABI library written in Zig"
   homepage "https://github.com/georgemandis/fulton"
-  version "0.3.0"
+  version "0.3.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/fulton/releases/download/v0.3.0/fulton-v0.3.0-macos-aarch64.tar.gz"
-      sha256 "6eeeb41d45050ec11e79c8b6fb14d5aada79f2f7eb2da33a5cdf845f314ad076"
+      url "https://github.com/georgemandis/fulton/releases/download/v0.3.1/fulton-v0.3.1-macos-aarch64.tar.gz"
+      sha256 "dce0e11793bcfa0b7ea7c89ea372566b9e83e0694e71994e73ac6a49b97de2ee"
     else
-      url "https://github.com/georgemandis/fulton/releases/download/v0.3.0/fulton-v0.3.0-macos-x86_64.tar.gz"
-      sha256 "17a6481d36a304f1dc4a818a948ac019c12187d0a14353c04fc7a8f2d7fe6d78"
+      url "https://github.com/georgemandis/fulton/releases/download/v0.3.1/fulton-v0.3.1-macos-x86_64.tar.gz"
+      sha256 "ebf3a7e70e8900fa381dfb58845d3ac7eeb5f7f75fce00ec18c40feb7e08422d"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/fulton/releases/download/v0.3.0/fulton-v0.3.0-linux-aarch64.tar.gz"
-      sha256 "a939a160a9bcd1dedc28cca85e5e5cb1dfe3ae10cd3a432604bb4f52d851a071"
+      url "https://github.com/georgemandis/fulton/releases/download/v0.3.1/fulton-v0.3.1-linux-aarch64.tar.gz"
+      sha256 "d066f870d654c2c4de2019a60d54bbd20c41111eda57aed68b83e94052efae8b"
     else
-      url "https://github.com/georgemandis/fulton/releases/download/v0.3.0/fulton-v0.3.0-linux-x86_64.tar.gz"
-      sha256 "2d6fdddf52ee4fe4b4f931c00233905e5aed2819c618355659718a36e581227b"
+      url "https://github.com/georgemandis/fulton/releases/download/v0.3.1/fulton-v0.3.1-linux-x86_64.tar.gz"
+      sha256 "6291ad5bb25c96632098abac3cf1bb9cf160a43a297c149ea5fd54ad2cd80450"
     end
   end
 
