@@ -1,15 +1,15 @@
 class Lingua < Formula
   desc "Natural language processing CLI powered by native macOS APIs"
   homepage "https://github.com/georgemandis/lingua"
-  version "0.1.0"
+  version "0.2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/lingua/releases/download/v0.1.0/lingua-v0.1.0-macos-aarch64.tar.gz"
-      sha256 "652b28087e92b57e780b8ec324583f62dd0102c94f0089cc38f8bed5b253b964"
+      url "https://github.com/georgemandis/lingua/releases/download/v0.2.0/lingua-v0.2.0-macos-aarch64.tar.gz"
+      sha256 "99f73b0a7956b054316a52596b6735a68165fa0f06dffa2aa0051cd5117e9656"
     else
-      url "https://github.com/georgemandis/lingua/releases/download/v0.1.0/lingua-v0.1.0-macos-x86_64.tar.gz"
-      sha256 "9e6a9b595fe06e9e003d21b6193fd32137c6f7c538fea6e5f0cf2359754b204c"
+      url "https://github.com/georgemandis/lingua/releases/download/v0.2.0/lingua-v0.2.0-macos-x86_64.tar.gz"
+      sha256 "4107adf1f2679346a992e5cff7892a296d5cf897b3cd96d78c1eb249358a5072"
     end
   end
 
