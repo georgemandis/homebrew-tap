@@ -1,15 +1,15 @@
 class Stenographer < Formula
   desc "Speech-to-text from the command line using native macOS Speech Recognition"
   homepage "https://github.com/georgemandis/stenographer"
-  version "0.2.1"
+  version "0.2.2"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/stenographer/releases/download/v0.2.1/stenographer-v0.2.1-macos-aarch64.tar.gz"
-      sha256 "3f4b75f6ec7bc9b57abee9deb4bc56f2f9bdd97e2b36964a6942112e3446b987"
+      url "https://github.com/georgemandis/stenographer/releases/download/v0.2.2/stenographer-v0.2.2-macos-aarch64.tar.gz"
+      sha256 "35fa8564b13e0f272017355ada61f46fc2cfaffc9217a47ee0fb0e2f7792a13f"
     else
-      url "https://github.com/georgemandis/stenographer/releases/download/v0.2.1/stenographer-v0.2.1-macos-x86_64.tar.gz"
-      sha256 "5411f3be285453a8b42e59807f0d35c4e613e3bb6995042359bee7a17d28d142"
+      url "https://github.com/georgemandis/stenographer/releases/download/v0.2.2/stenographer-v0.2.2-macos-x86_64.tar.gz"
+      sha256 "3f6e5599b1217d3e34126627144ae745d90ede44edd4fa502be0e68b31d3abf0"
     end
   end
 
