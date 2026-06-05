@@ -1,16 +1,16 @@
 class Nearme < Formula
   desc "Search for places near you from the command line using native macOS APIs"
   homepage "https://github.com/georgemandis/nearme"
-  version "0.2.1"
+  version "0.3.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/nearme/releases/download/v0.2.1/nearme-v0.2.1-macos-aarch64.tar.gz"
-      sha256 "333a1401ad7aef92fcccd6c10cde9ff599772f35cd54f0fd896dea52a9667453"
+      url "https://github.com/georgemandis/nearme/releases/download/v0.3.0/nearme-v0.3.0-macos-aarch64.tar.gz"
+      sha256 "e1060ae1113d5601fa96aaf9b24c03991a7b1af2cb60f785b81b0823bd5d8dd9"
     else
-      url "https://github.com/georgemandis/nearme/releases/download/v0.2.1/nearme-v0.2.1-macos-x86_64.tar.gz"
-      sha256 "2d27fd7e9daca151ca4d8f158359b7a1a0c670f940f1185bd6353ed84494a82f"
+      url "https://github.com/georgemandis/nearme/releases/download/v0.3.0/nearme-v0.3.0-macos-x86_64.tar.gz"
+      sha256 "8b4426f24ddde7173995395dad21f8220bba304ea50f0fd81c8bb16506c4e0bd"
     end
   end
 
