@@ -1,15 +1,15 @@
 class Tezcatl < Formula
   desc "Lightweight CLI for rendering web pages using native macOS WebKit"
   homepage "https://github.com/georgemandis/tezcatl"
-  version "0.1.1"
+  version "0.2.0"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/tezcatl/releases/download/v0.1.1/tezcatl-v0.1.1-macos-aarch64.tar.gz"
-      sha256 "c5662988bf0b920a5fbb546179841d9bd992d59e9bdc845f30ebc335a1910fcc"
+      url "https://github.com/georgemandis/tezcatl/releases/download/v0.2.0/tezcatl-v0.2.0-macos-aarch64.tar.gz"
+      sha256 "f7d439424a67db8a8f74bef57b6b77961cd35f7bb6b0f7249661f2addd18df8a"
     else
-      url "https://github.com/georgemandis/tezcatl/releases/download/v0.1.1/tezcatl-v0.1.1-macos-x86_64.tar.gz"
-      sha256 "34296fe6c921788b776584119bdab8b21861e7df517e67f5f185c7f7aff1242e"
+      url "https://github.com/georgemandis/tezcatl/releases/download/v0.2.0/tezcatl-v0.2.0-macos-x86_64.tar.gz"
+      sha256 "3a4a71262adde0325767de68b5e884ff8d78ca2ba6943095b86e3b1a24c403ce"
     end
   end
 
