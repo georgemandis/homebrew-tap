@@ -7,7 +7,10 @@ class Spectacle < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/georgemandis/spectacle/releases/download/v0.1.0/spectacle-v0.1.0-macos-aarch64.tar.gz"
-      sha256 "fcb384c603f9f56c729c9d7546e6dc468763ab5292dced30e441e355648da4e6"
+      sha256 "7deba1e0aec671f8bad373a1584ea7f250c37ffb8c029126261de58c143f32f0"
+    else
+      url "https://github.com/georgemandis/spectacle/releases/download/v0.1.0/spectacle-v0.1.0-macos-x86_64.tar.gz"
+      sha256 "37f5117378b053a305cb8914fd165985f378c895503f4ce5d211a59d7c457168"
     end
   end
 
