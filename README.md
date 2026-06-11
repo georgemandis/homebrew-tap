@@ -19,3 +19,4 @@ brew install georgemandis/tap/whereami
 | [tezcatl](https://github.com/georgemandis/tezcatl) | Lightweight CLI for rendering web pages using native macOS WebKit |
 | [lingua](https://github.com/georgemandis/lingua) | Natural language processing CLI powered by native macOS APIs |
 | [stenographer](https://github.com/georgemandis/stenographer) | Speech-to-text from the command line using native macOS Speech Recognition |
+| [engsight](https://github.com/georgemandis/engsight) | Personal engineering metrics, collected passively via git hooks |
