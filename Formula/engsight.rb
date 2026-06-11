@@ -17,6 +17,9 @@ class Engsight < Formula
     libexec.install "install.sh"
     libexec.install "hooks"
 
+    # Install MCP server
+    libexec.install "mcp"
+
     # Make scripts executable
     chmod 0755, libexec/"engsight"
     chmod 0755, libexec/"install.sh"
@@ -39,6 +42,11 @@ class Engsight < Formula
 
         engsight init          # current repo
         engsight init-all ~/Projects  # all repos under a path
+
+      MCP server (optional, requires Bun — https://bun.sh):
+
+        cd #{libexec}/mcp && bun install
+        claude mcp add engsight -s user -- bun run #{libexec}/mcp/index.ts
     EOS
   end
 
