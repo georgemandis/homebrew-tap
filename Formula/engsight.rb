@@ -1,9 +1,9 @@
 class Engsight < Formula
   desc "Personal engineering metrics, collected passively via git hooks"
   homepage "https://github.com/georgemandis/engsight"
-  url "https://github.com/georgemandis/engsight/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "bf2af050c873095dfa79f2ed128ef44d35b19ef403c2189cf6c346e76a8ba8f8"
-  version "1.0.0"
+  url "https://github.com/georgemandis/engsight/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "b5c43a06061933cb8c1bb0ede40675bb6f4d06f2c47ffb17b97dea66174e6c69"
+  version "1.1.0"
   license "MIT"
 
   depends_on "sqlite"
@@ -14,7 +14,6 @@ class Engsight < Formula
     libexec.install "common.sh"
     libexec.install "config.default"
     libexec.install "schema.sql"
-    libexec.install "install.sh"
     libexec.install "hooks"
 
     # Install MCP server
@@ -22,7 +21,6 @@ class Engsight < Formula
 
     # Make scripts executable
     chmod 0755, libexec/"engsight"
-    chmod 0755, libexec/"install.sh"
 
     # Create a wrapper that puts engsight in PATH
     (bin/"engsight").write <<~SH
@@ -35,7 +33,7 @@ class Engsight < Formula
     <<~EOS
       To complete setup, run:
 
-        #{libexec}/install.sh
+        engsight setup
 
       This creates ~/.engsight/ with the database, config, and hook
       templates. Then install hooks in existing repos:
