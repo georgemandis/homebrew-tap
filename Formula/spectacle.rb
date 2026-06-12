@@ -7,15 +7,17 @@ class Spectacle < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/georgemandis/spectacle/releases/download/v0.2.0/spectacle-v0.2.0-macos-aarch64.tar.gz"
-      sha256 "794dd040f94aef559a30506b82e9b8ff9710c4dca43fb0c54e3bac5940c0b22b"
+      sha256 "a6ba0474c799331a749fff97003119c8d5b50a497e693ab61b5396ae97439066"
     else
       url "https://github.com/georgemandis/spectacle/releases/download/v0.2.0/spectacle-v0.2.0-macos-x86_64.tar.gz"
-      sha256 "59ddacbfe8803e445c94f9b068df8d4218c7f6e8f6d161f246b47f67528db5c0"
+      sha256 "18c928e6b82234b12fcb6ff2670e4930c05fa672bc2b4c0cf48ec32b434c0053"
     end
   end
 
   def install
     bin.install "spectacle"
+
+    generate_completions_from_executable(bin/"spectacle", "completions")
   end
 
   test do
