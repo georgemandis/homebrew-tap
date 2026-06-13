@@ -1,26 +1,26 @@
 class Poltergeist < Formula
   desc "Cross-platform accessibility CLI for inspecting UI elements and managing windows"
   homepage "https://github.com/georgemandis/poltergeist"
-  version "0.2.0"
+  version "0.1.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/poltergeist/releases/download/v0.2.0/poltergeist-v0.2.0-macos-aarch64.tar.gz"
-      sha256 "a03d6d6205c17d1a2e186ab8351dab7e87b1f8ff55c6585d18b85f34cacb78a8"
+      url "https://github.com/georgemandis/poltergeist/releases/download/v0.1.1/poltergeist-v0.1.1-macos-aarch64.tar.gz"
+      sha256 "4a00c2dca349312fb382fd9dc8c040fdb8e77c1481bf6e226c4a3bf1f39ba459"
     else
-      url "https://github.com/georgemandis/poltergeist/releases/download/v0.2.0/poltergeist-v0.2.0-macos-x86_64.tar.gz"
-      sha256 "918a44c8b8d7e2c84b2f9fd2385122a9e110879d730140b264d37f6fa8ace768"
+      url "https://github.com/georgemandis/poltergeist/releases/download/v0.1.1/poltergeist-v0.1.1-macos-x86_64.tar.gz"
+      sha256 "52a6946eab8069a9bb9ac0b7a2b8849267b4621ba545befa57547977dd1e3ca8"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/poltergeist/releases/download/v0.2.0/poltergeist-v0.2.0-linux-aarch64.tar.gz"
-      sha256 "4ac6450622e7daa1bb5edbe351ec1780eb0b52e2bfe6401b6cec34363a90e506"
+      url "https://github.com/georgemandis/poltergeist/releases/download/v0.1.1/poltergeist-v0.1.1-linux-aarch64.tar.gz"
+      sha256 "53786642b25ba25b10d97272cf330b6ad3c44206f2976eae008fc87064620cb2"
     else
-      url "https://github.com/georgemandis/poltergeist/releases/download/v0.2.0/poltergeist-v0.2.0-linux-x86_64.tar.gz"
-      sha256 "93925537b39b59408e7a89d6914b85ca223e587750bd5374f3924e0a02bfeb93"
+      url "https://github.com/georgemandis/poltergeist/releases/download/v0.1.1/poltergeist-v0.1.1-linux-x86_64.tar.gz"
+      sha256 "25df3efb8ce3087f7284ac5d107d5dc161de7a2db668daa2da288ca02f9908f6"
     end
 
     depends_on "at-spi2-core"
@@ -30,6 +30,8 @@ class Poltergeist < Formula
 
   def install
     bin.install "poltergeist"
+
+    generate_completions_from_executable(bin/"poltergeist", "completions")
   end
 
   def caveats

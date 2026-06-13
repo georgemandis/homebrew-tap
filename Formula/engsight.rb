@@ -1,9 +1,9 @@
 class Engsight < Formula
   desc "Personal engineering metrics, collected passively via git hooks"
   homepage "https://github.com/georgemandis/engsight"
-  url "https://github.com/georgemandis/engsight/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "b5c43a06061933cb8c1bb0ede40675bb6f4d06f2c47ffb17b97dea66174e6c69"
-  version "1.1.0"
+  url "https://github.com/georgemandis/engsight/archive/refs/tags/v1.1.1.tar.gz"
+  sha256 "f99d676b69928b90c258dd55a2b7c24f6ec59df169a11d208acd93d018fde474"
+  version "1.1.1"
   license "MIT"
 
   depends_on "sqlite"
@@ -27,6 +27,8 @@ class Engsight < Formula
       #!/usr/bin/env bash
       exec "#{libexec}/engsight" "$@"
     SH
+
+    generate_completions_from_executable(bin/"engsight", "completions")
   end
 
   def caveats
