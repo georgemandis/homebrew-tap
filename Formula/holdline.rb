@@ -1,6 +1,7 @@
 class Holdline < Formula
   desc "Freeze merges across your GitHub org from the terminal"
   homepage "https://github.com/georgemandis/little-money-ideas"
+  # tag_prefix: holdline-v
   version "0.1.0"
   license "MIT"
 
