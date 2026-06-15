@@ -10,12 +10,12 @@ class Holdline < Formula
 
   on_macos do
     url "https://github.com/lesssoftware/releases/releases/download/holdline-v0.1.0/holdline-v0.1.0-macos-aarch64.tar.gz"
-    sha256 "d6a2920c22e4ee9e1d55325a60a5eca89fb48c5ffeb9005e82632088fc8ae9de"
+    sha256 "a59490eef5404ad3eb19b42890cb20ea8a1c2c15dceede95b53466d473ed5ce8"
   end
 
   on_linux do
     url "https://github.com/lesssoftware/releases/releases/download/holdline-v0.1.0/holdline-v0.1.0-linux-x86_64.tar.gz"
-    sha256 "85ee3aa16a8cdefd5d87fc931fcdffa5b492c6d8915c1f1284778fd9ba2e3d2c"
+    sha256 "a7ab0dcf36527080b18641fa40fe59bd6da18ded7e66f4a002f9a1ee9346dcdd"
   end
 
   def install
