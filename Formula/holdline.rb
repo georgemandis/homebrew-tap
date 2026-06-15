@@ -5,19 +5,17 @@ class Holdline < Formula
   version "0.1.0"
   license "MIT"
 
+  # Apple Silicon only on macOS (no Intel build shipped).
+  depends_on arch: :arm64 if OS.mac?
+
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/little-money-ideas/releases/download/holdline-v0.1.0/holdline-v0.1.0-macos-aarch64.tar.gz"
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
-    else
-      url "https://github.com/georgemandis/little-money-ideas/releases/download/holdline-v0.1.0/holdline-v0.1.0-macos-x86_64.tar.gz"
-      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
-    end
+    url "https://github.com/georgemandis/little-money-ideas/releases/download/holdline-v0.1.0/holdline-v0.1.0-macos-aarch64.tar.gz"
+    sha256 "d6a2920c22e4ee9e1d55325a60a5eca89fb48c5ffeb9005e82632088fc8ae9de"
   end
 
   on_linux do
     url "https://github.com/georgemandis/little-money-ideas/releases/download/holdline-v0.1.0/holdline-v0.1.0-linux-x86_64.tar.gz"
-    sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+    sha256 "85ee3aa16a8cdefd5d87fc931fcdffa5b492c6d8915c1f1284778fd9ba2e3d2c"
   end
 
   def install

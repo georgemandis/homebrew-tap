@@ -21,13 +21,13 @@ update_formula() {
 
   # Optional tag prefix for monorepo-resident tools (read from a comment marker)
   local tag_prefix
-  tag_prefix=$(grep -m1 '^# tag_prefix:' "$rb" 2>/dev/null | sed 's/^# tag_prefix:[[:space:]]*//' || echo "")
+  tag_prefix=$(grep -m1 '^[[:space:]]*# tag_prefix:' "$rb" 2>/dev/null | sed 's/^[[:space:]]*# tag_prefix:[[:space:]]*//; s/[[:space:]]*$//' | tr -d '\r' || echo "")
 
   # Get latest release tag
   local latest latest_version
   if [ -n "$tag_prefix" ]; then
     # Monorepo: pick the latest release whose tag starts with this product's prefix.
-    latest=$(gh release list --repo "$repo" --limit 100 --json tagName -q "[.[].tagName | select(startswith(\"$tag_prefix\"))] | .[0]" 2>/dev/null) || latest=""
+    latest=$(gh release list --repo "$repo" --limit 100 --json tagName -q "[.[].tagName | select(startswith(\"$tag_prefix\"))] | .[0]" 2>/dev/null | tr -d '\r') || latest=""
     if [ -z "$latest" ] || [ "$latest" = "null" ]; then
       echo "  ⏭  $name: no $tag_prefix* releases, skipping"
       return
@@ -45,7 +45,7 @@ update_formula() {
   local current
   current=$(grep -m1 'version ' "$rb" | sed 's/.*"\(.*\)".*/\1/')
 
-  if [ "$current" = "$latest_version" ]; then
+  if [ "$current" = "$latest_version" ] && ! grep -q 'sha256 "0\{64\}"' "$rb"; then
     echo "  ✓  $name: already at $current"
     return
   fi
