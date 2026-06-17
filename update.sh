@@ -60,9 +60,10 @@ update_formula() {
   local url
   url=$(grep -m1 '^[[:space:]]*url ' "$rb" | sed 's/.*"\(.*\)".*/\1/')
   local sha
-  sha=$(curl -fsSL "$url" | shasum -a 256 | awk '{print $1}')
-  if [ -z "$sha" ]; then
-    echo "  ✗  $name: failed to hash $url" >&2
+  sha=$(set -o pipefail; curl -fsSL "$url" | shasum -a 256 | awk '{print $1}')
+  local curl_rc=$?
+  if [ "$curl_rc" -ne 0 ] || [ -z "$sha" ]; then
+    echo "  ✗  $name: failed to hash $url (curl exit $curl_rc)" >&2
     return 1
   fi
   sed -i '' "s/sha256 \"[a-f0-9]*\"/sha256 \"$sha\"/" "$rb"
