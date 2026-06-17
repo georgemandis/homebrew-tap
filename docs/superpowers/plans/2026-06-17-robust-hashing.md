@@ -80,9 +80,10 @@ No new files. Each script's change is self-contained within its one per-item fun
   local url
   url=$(grep -m1 '^[[:space:]]*url ' "$rb" | sed 's/.*"\(.*\)".*/\1/')
   local sha
-  sha=$(curl -fsSL "$url" | shasum -a 256 | awk '{print $1}')
-  if [ -z "$sha" ]; then
-    echo "  ✗  $name: failed to hash $url" >&2
+  sha=$(set -o pipefail; curl -fsSL "$url" | shasum -a 256 | awk '{print $1}')
+  local curl_rc=$?
+  if [ "$curl_rc" -ne 0 ] || [ -z "$sha" ]; then
+    echo "  ✗  $name: failed to hash $url (curl exit $curl_rc)" >&2
     return 1
   fi
   sed -i '' "s/sha256 \"[a-f0-9]*\"/sha256 \"$sha\"/" "$rb"
@@ -90,7 +91,16 @@ No new files. Each script's change is self-contained within its one per-item fun
   echo "       updated $rb ($latest_version)"
 ```
 
-Note: `curl -fsSL` — `-f` makes HTTP errors return non-zero (so a 404 yields an empty `$sha` and triggers the guard), `-sS` is quiet but still surfaces real errors, `-L` follows the GitHub archive redirect. The `mktemp`/`tmpdir`/`gh release download` lines are gone entirely.
+CRITICAL guard note (learned during implementation): the failure check must use
+`set -o pipefail` *inside* the command-substitution subshell plus `$?`, NOT a bare
+`[ -z "$sha" ]` test and NOT `${PIPESTATUS[0]}`. Reasons: (1) on a 404, `curl -fsSL`
+writes nothing but `shasum` of empty input is `e3b0c44298fc1...` (SHA-256 of the
+empty string) — non-empty, so `[ -z "$sha" ]` alone does NOT fire; (2) `${PIPESTATUS[0]}`
+after `sha=$(pipeline)` reflects the *assignment* (always 0), not the pipeline inside
+the subshell, so it also misses the failure. `set -o pipefail; ...` makes the
+substitution's exit status reflect curl's failure, captured by `$?`. Do NOT capture
+the body into a variable — the tarball is binary/gzip and bash mangles null bytes
+(producing a wrong hash). `-f` = HTTP errors non-zero, `-sS` = quiet but real errors shown, `-sS` is quiet but still surfaces real errors, `-L` follows the GitHub archive redirect. The `mktemp`/`tmpdir`/`gh release download` lines are gone entirely.
 
 - [ ] **Step 2: Syntax check**
 
@@ -275,9 +285,10 @@ with open('$json', 'w') as f:
   local url
   url=$(python3 -c "import json; d=json.load(open('$json')); print(d.get('url') or d.get('architecture',{}).get('64bit',{}).get('url',''))")
   local sha
-  sha=$(curl -fsSL "$url" | shasum -a 256 | awk '{print $1}')
-  if [ -z "$sha" ]; then
-    echo "  ✗  $name: failed to hash $url" >&2
+  sha=$(set -o pipefail; curl -fsSL "$url" | shasum -a 256 | awk '{print $1}')
+  local curl_rc=$?
+  if [ "$curl_rc" -ne 0 ] || [ -z "$sha" ]; then
+    echo "  ✗  $name: failed to hash $url (curl exit $curl_rc)" >&2
     return 1
   fi
 
