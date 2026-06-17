@@ -52,37 +52,23 @@ update_formula() {
 
   echo "  ↑  $name: $current → $latest_version"
 
-  # Download assets and compute hashes
-  local tmpdir
-  tmpdir=$(mktemp -d)
-  gh release download "$latest" --repo "$repo" --dir "$tmpdir" --pattern "*.tar.gz" 2>/dev/null || true
-
-  # Update version string and URLs (skip sha256 lines to avoid corrupting hashes)
+  # Bump version/URL strings (skip sha256 lines so the old hash isn't mangled).
   sed -i '' "/sha256/!s/$current/$latest_version/g" "$rb"
 
-  # Update sha256 hashes by matching each downloaded asset to its URL line
-  for asset in "$tmpdir"/*.tar.gz; do
-    [ -f "$asset" ] || continue
-    local basename_asset
-    basename_asset=$(basename "$asset")
-    local sha
-    sha=$(shasum -a 256 "$asset" | awk '{print $1}')
+  # Hash the exact URL the formula now points at — that is precisely what
+  # Homebrew will download, so the hash can never drift from the artifact.
+  local url
+  url=$(grep -m1 '^[[:space:]]*url ' "$rb" | sed 's/.*"\(.*\)".*/\1/')
+  local sha
+  sha=$(set -o pipefail; curl -fsSL "$url" | shasum -a 256 | awk '{print $1}')
+  local curl_rc=$?
+  if [ "$curl_rc" -ne 0 ] || [ -z "$sha" ]; then
+    echo "  ✗  $name: failed to hash $url (curl exit $curl_rc)" >&2
+    return 1
+  fi
+  sed -i '' "s/sha256 \"[a-f0-9]*\"/sha256 \"$sha\"/" "$rb"
 
-    # Find the URL line for this asset, then update the sha256 on the next line
-    local url_line
-    url_line=$(grep -n "$basename_asset" "$rb" | head -1 | cut -d: -f1)
-    if [ -n "$url_line" ]; then
-      local sha_line
-      sha_line=$(tail -n +"$url_line" "$rb" | grep -n 'sha256' | head -1 | cut -d: -f1)
-      if [ -n "$sha_line" ]; then
-        local actual_line=$((url_line + sha_line - 1))
-        sed -i '' "${actual_line}s/sha256 \"[a-f0-9]*\"/sha256 \"$sha\"/" "$rb"
-      fi
-    fi
-  done
-
-  rm -rf "$tmpdir"
-  echo "       updated $rb"
+  echo "       updated $rb ($latest_version)"
 }
 
 if [ $# -gt 0 ]; then
