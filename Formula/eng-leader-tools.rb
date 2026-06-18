@@ -9,10 +9,37 @@ class EngLeaderTools < Formula
   depends_on "gh"
   depends_on "jq"
 
+  # Compiled MCP server binary (eng-mcp), per platform. URLs use literal
+  # version strings so update.sh can version-bump them; hashes are filled by
+  # update.sh once the release assets exist.
+  on_macos do
+    on_arm do
+      resource "eng-mcp" do
+        url "https://github.com/georgemandis/eng-leader-tools/releases/download/v0.3.1/eng-mcp-v0.3.1-macos-aarch64.tar.gz"
+        sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+      end
+    end
+    on_intel do
+      resource "eng-mcp" do
+        url "https://github.com/georgemandis/eng-leader-tools/releases/download/v0.3.1/eng-mcp-v0.3.1-macos-x86_64.tar.gz"
+        sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+      end
+    end
+  end
+  on_linux do
+    resource "eng-mcp" do
+      url "https://github.com/georgemandis/eng-leader-tools/releases/download/v0.3.1/eng-mcp-v0.3.1-linux-x86_64.tar.gz"
+      sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+    end
+  end
+
   def install
     # Install all scripts to libexec
     libexec.install "src"
     libexec.install "eng"
+
+    # Install the compiled MCP server binary beside eng
+    resource("eng-mcp").stage { libexec.install "eng-mcp" }
 
     # Symlink the eng wrapper into bin
     bin.install_symlink libexec/"eng"
