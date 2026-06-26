@@ -19,12 +19,6 @@ class EngLeaderTools < Formula
         sha256 "36272755b616c74391df51380dad5a82db86422568b55c0e81e7bf810a7fa5ff"
       end
     end
-    on_intel do
-      resource "eng-mcp" do
-        url "https://github.com/georgemandis/eng-leader-tools/releases/download/v0.3.2/eng-mcp-v0.3.2-macos-x86_64.tar.gz"
-        sha256 "c0ee6f3077734911757d9285ea9b0517edb354a0898874539e6bf096910eee65"
-      end
-    end
   end
   on_linux do
     resource "eng-mcp" do
