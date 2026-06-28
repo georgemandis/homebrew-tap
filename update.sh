@@ -55,18 +55,31 @@ update_formula() {
   # Bump version/URL strings (skip sha256 lines so the old hash isn't mangled).
   sed -i '' "/sha256/!s/$current/$latest_version/g" "$rb"
 
-  # Hash the exact URL the formula now points at — that is precisely what
-  # Homebrew will download, so the hash can never drift from the artifact.
-  local url
-  url=$(grep -m1 '^[[:space:]]*url ' "$rb" | sed 's/.*"\(.*\)".*/\1/')
-  local sha
-  sha=$(set -o pipefail; curl -fsSL "$url" | shasum -a 256 | awk '{print $1}')
-  local curl_rc=$?
-  if [ "$curl_rc" -ne 0 ] || [ -z "$sha" ]; then
-    echo "  ✗  $name: failed to hash $url (curl exit $curl_rc)" >&2
-    return 1
-  fi
-  sed -i '' "s/sha256 \"[a-f0-9]*\"/sha256 \"$sha\"/" "$rb"
+  # Hash EACH url into the sha256 line that immediately follows it. A formula may
+  # have several (a main url + one per `resource` block); each is hashed against
+  # exactly the artifact it points at. Single-url formulae have one pair.
+  local tmp; tmp="$(mktemp)"
+  local pending_url=""
+  local line url sha curl_rc
+  while IFS= read -r line; do
+    if printf '%s\n' "$line" | grep -Eq '^[[:space:]]*url '; then
+      pending_url=$(printf '%s\n' "$line" | sed 's/.*"\(.*\)".*/\1/')
+      printf '%s\n' "$line" >> "$tmp"
+    elif printf '%s\n' "$line" | grep -Eq '^[[:space:]]*sha256 ' && [ -n "$pending_url" ]; then
+      sha=$(set -o pipefail; curl -fsSL "$pending_url" | shasum -a 256 | awk '{print $1}')
+      curl_rc=$?
+      if [ "$curl_rc" -ne 0 ] || [ -z "$sha" ]; then
+        echo "  ✗  $name: failed to hash $pending_url (curl exit $curl_rc)" >&2
+        rm -f "$tmp"
+        return 1
+      fi
+      printf '%s\n' "$line" | sed "s/sha256 \"[a-f0-9]*\"/sha256 \"$sha\"/" >> "$tmp"
+      pending_url=""
+    else
+      printf '%s\n' "$line" >> "$tmp"
+    fi
+  done < "$rb"
+  mv "$tmp" "$rb"
 
   echo "       updated $rb ($latest_version)"
 }
