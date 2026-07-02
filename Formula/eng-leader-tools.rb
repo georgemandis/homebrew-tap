@@ -1,9 +1,9 @@
 class EngLeaderTools < Formula
   desc "Bash scripts for engineering leadership metrics — DORA, PR health, review load, and more"
   homepage "https://github.com/georgemandis/eng-leader-tools"
-  url "https://github.com/georgemandis/eng-leader-tools/archive/refs/tags/v0.3.2.tar.gz"
-  sha256 "f38c1f896995f11473fec9a2be71699d24af829f71bdf8dbc57652db85ba305a"
-  version "0.3.2"
+  url "https://github.com/georgemandis/eng-leader-tools/archive/refs/tags/v0.3.3.tar.gz"
+  sha256 "6e2df9937f98f1baeed489623407f8c1d8c2e16427fbcde0764c87c77160cd78"
+  version "0.3.3"
   license "MIT"
 
   depends_on "gh"
@@ -15,15 +15,15 @@ class EngLeaderTools < Formula
   on_macos do
     on_arm do
       resource "eng-mcp" do
-        url "https://github.com/georgemandis/eng-leader-tools/releases/download/v0.3.2/eng-mcp-v0.3.2-macos-aarch64.tar.gz"
-        sha256 "36272755b616c74391df51380dad5a82db86422568b55c0e81e7bf810a7fa5ff"
+        url "https://github.com/georgemandis/eng-leader-tools/releases/download/v0.3.3/eng-mcp-v0.3.3-macos-aarch64.tar.gz"
+        sha256 "28a21661bcc5aabd59c76a3e7181b08416e21eec73a74d370a669872c42c1245"
       end
     end
   end
   on_linux do
     resource "eng-mcp" do
-      url "https://github.com/georgemandis/eng-leader-tools/releases/download/v0.3.2/eng-mcp-v0.3.2-linux-x86_64.tar.gz"
-      sha256 "74605e3621f34ddbe7220381fa7a1ed0e64c60aadbb01d3a58a737e22628329a"
+      url "https://github.com/georgemandis/eng-leader-tools/releases/download/v0.3.3/eng-mcp-v0.3.3-linux-x86_64.tar.gz"
+      sha256 "1b9684e4b100ff81debe96068ac72aca87c463879ee2cc2be1b0ca959f48cc78"
     end
   end
 
