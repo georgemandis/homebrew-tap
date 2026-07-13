@@ -1,9 +1,9 @@
 class Engsight < Formula
   desc "Personal engineering metrics, collected passively via git hooks"
   homepage "https://github.com/georgemandis/engsight"
-  url "https://github.com/georgemandis/engsight/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "85ca8fc52cbb7f59cc9608bcd5d3057be264e25e56618cfdcb84e24fd5daaf16"
-  version "0.1.2"
+  url "https://github.com/georgemandis/engsight/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "0c5cbd3e8c9909a9a536894b05884da3b521c9629af2c0264b6eb2696ac07a10"
+  version "0.1.5"
   license "MIT"
 
   depends_on "sqlite"
