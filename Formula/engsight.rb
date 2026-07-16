@@ -27,6 +27,7 @@ class Engsight < Formula
       #!/usr/bin/env bash
       exec "#{libexec}/engsight" "$@"
     SH
+    chmod 0755, bin/"engsight"
 
     generate_completions_from_executable(bin/"engsight", "completions")
   end
