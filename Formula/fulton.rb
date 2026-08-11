@@ -7,10 +7,10 @@ class Fulton < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/georgemandis/fulton/releases/download/v0.3.2/fulton-v0.3.2-macos-aarch64.tar.gz"
-      sha256 "033550cb1f6aeeba370c755bda3592c2dfa9f838bc810e2004e884ed309579af"
+      sha256 "304df59ff0506667c95456749cc243a77d3a8c01a896f26dfe4ed0cea9cceb3e"
     else
       url "https://github.com/georgemandis/fulton/releases/download/v0.3.2/fulton-v0.3.2-macos-x86_64.tar.gz"
-      sha256 "1c139295a2188ef06a9fdb00009265a0decf46c4cc7c25aa1b82e79775a3115d"
+      sha256 "c2844bca9acef686e72c938a9439d0aaec4478dde9bba0cff40e129bd434fff6"
     end
   end
 

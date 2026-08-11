@@ -6,10 +6,10 @@ class Cacophony < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/georgemandis/cacophony/releases/download/v0.1.1/cacophony-v0.1.1-macos-aarch64.tar.gz"
-      sha256 "8abe7cfa11e542cb2a8fd1d7df2dc79ed20629b95345203efb68ab57c7d82f24"
+      sha256 "eb25d85d540ebe43830a728f35120fb2097c213fdeebc4b28faab6f323133c79"
     else
       url "https://github.com/georgemandis/cacophony/releases/download/v0.1.1/cacophony-v0.1.1-macos-x86_64.tar.gz"
-      sha256 "4be9533463b57eb5e03ad0cd754fd5f7011580b3aec78e460d050fa0fd190c84"
+      sha256 "f8ae71835987bd83258daed009c183c2f1e02cfb9a3654c802d21a352703bcfe"
     end
   end
 

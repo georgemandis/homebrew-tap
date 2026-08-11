@@ -6,10 +6,10 @@ class Lingua < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/georgemandis/lingua/releases/download/v0.6.0/lingua-v0.6.0-macos-aarch64.tar.gz"
-      sha256 "c154a5eaff73c47d06f6eca291a0c937e8924b599e939e4d6a7668b32b394e2c"
+      sha256 "0b7ba33ea250ff149f88e6affcb7b9acdace25c6dbf2652a4129f200e4f4b3db"
     else
       url "https://github.com/georgemandis/lingua/releases/download/v0.6.0/lingua-v0.6.0-macos-x86_64.tar.gz"
-      sha256 "163d93c1159ae8c43f6096cec645ba3fb16fa990e0caae210bb2e38d0e7e1871"
+      sha256 "cf2429ccd465b767d6e45dc2e79fde5c1cddfb40c2abc8bc394dc3462b1b183e"
     end
   end
 

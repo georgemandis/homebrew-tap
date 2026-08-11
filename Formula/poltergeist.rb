@@ -7,10 +7,10 @@ class Poltergeist < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/georgemandis/poltergeist/releases/download/v0.1.1/poltergeist-v0.1.1-macos-aarch64.tar.gz"
-      sha256 "4a00c2dca349312fb382fd9dc8c040fdb8e77c1481bf6e226c4a3bf1f39ba459"
+      sha256 "87c475fd3909ceea630a98bb9f700617939474d0f9544d7debebea57a7b95169"
     else
       url "https://github.com/georgemandis/poltergeist/releases/download/v0.1.1/poltergeist-v0.1.1-macos-x86_64.tar.gz"
-      sha256 "52a6946eab8069a9bb9ac0b7a2b8849267b4621ba545befa57547977dd1e3ca8"
+      sha256 "ec416f3e2db85980a5f4c6ae33761e38dba3ccb95463bad63fc7ed9da001bf87"
     end
   end
 

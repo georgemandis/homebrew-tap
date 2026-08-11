@@ -7,10 +7,10 @@ class Whereami < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/georgemandis/whereami/releases/download/v0.3.3/whereami-v0.3.3-macos-aarch64.tar.gz"
-      sha256 "3c3f918d6abf2d9f150bd22e4be4e149c331b0864515e5ee036f3394d73c5641"
+      sha256 "2a6bf11dc757e8745956922a1260bd62757ca5a8150cd2f81a209a46e38e45f3"
     else
       url "https://github.com/georgemandis/whereami/releases/download/v0.3.3/whereami-v0.3.3-macos-x86_64.tar.gz"
-      sha256 "16962247c4c9069f14ebcd7f14b34af035c0b6a7851a4b464992fc162beb980b"
+      sha256 "84c7060e24411ff639d9d66fbb052d933ec574dea0131f0840822897907e700b"
     end
   end
 

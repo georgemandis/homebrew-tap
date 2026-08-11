@@ -9,7 +9,7 @@ class Tezcatl < Formula
       sha256 "193d184d3903ebc7483750e4be13b9dd0df3145e89831984145c9c87c5e0541a"
     else
       url "https://github.com/georgemandis/tezcatl/releases/download/v0.3.0/tezcatl-v0.3.0-macos-x86_64.tar.gz"
-      sha256 "193d184d3903ebc7483750e4be13b9dd0df3145e89831984145c9c87c5e0541a"
+      sha256 "d6d911b63fa9e9805cba12c1ef0e007fb4c514d6892cc5761a67491f1de7847f"
     end
   end
 
