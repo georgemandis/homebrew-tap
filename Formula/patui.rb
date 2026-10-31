@@ -1,23 +1,23 @@
 class Patui < Formula
   desc "Terminal-based image editor with Vim-style modal controls"
   homepage "https://github.com/georgemandis/patui"
-  version "0.2.1"
+  version "0.3.0"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://github.com/georgemandis/patui/releases/download/v0.2.1/patui-v0.2.1-macos-aarch64.tar.gz"
-      sha256 "dd7cde4bb7f826272eb191f650797db9400a55d9ebedd4783fead057ec55ca3a"
+      url "https://github.com/georgemandis/patui/releases/download/v0.3.0/patui-v0.3.0-macos-aarch64.tar.gz"
+      sha256 "3c36f2eab6dce794d75a4576ceec3e250156aeead2342cc6e779f49a737ee4f5"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/patui/releases/download/v0.2.1/patui-v0.2.1-linux-aarch64.tar.gz"
-      sha256 "f9c27607b07686ee161410bd3ff461847bc23abb34b997dbf1833bf51f24ed70"
+      url "https://github.com/georgemandis/patui/releases/download/v0.3.0/patui-v0.3.0-linux-aarch64.tar.gz"
+      sha256 "bc239762697b24a1625015776c37a4a8f4a57174f434775ce08ab99bbf084b6a"
     else
-      url "https://github.com/georgemandis/patui/releases/download/v0.2.1/patui-v0.2.1-linux-x86_64.tar.gz"
-      sha256 "7fce847e5e6920e02bdc39c236c69bed51e1aa7c288eaf30dd8ae3f0bd5e2f72"
+      url "https://github.com/georgemandis/patui/releases/download/v0.3.0/patui-v0.3.0-linux-x86_64.tar.gz"
+      sha256 "78dca258a377e4c83d91f224d984845f7ee6fa6a4158fd9c43c2fe2ae88da02f"
     end
   end
 
