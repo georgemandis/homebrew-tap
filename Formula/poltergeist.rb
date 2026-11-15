@@ -1,26 +1,26 @@
 class Poltergeist < Formula
   desc "Cross-platform accessibility CLI for inspecting UI elements and managing windows"
   homepage "https://github.com/georgemandis/poltergeist"
-  version "0.1.1"
+  version "0.2.1"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/poltergeist/releases/download/v0.1.1/poltergeist-v0.1.1-macos-aarch64.tar.gz"
-      sha256 "87c475fd3909ceea630a98bb9f700617939474d0f9544d7debebea57a7b95169"
+      url "https://github.com/georgemandis/poltergeist/releases/download/v0.2.1/poltergeist-v0.2.1-macos-aarch64.tar.gz"
+      sha256 "0027a49c25697ddb5d368aafff06127d2cf35b72cf5e994a24dbe197f49efb2c"
     else
-      url "https://github.com/georgemandis/poltergeist/releases/download/v0.1.1/poltergeist-v0.1.1-macos-x86_64.tar.gz"
-      sha256 "ec416f3e2db85980a5f4c6ae33761e38dba3ccb95463bad63fc7ed9da001bf87"
+      url "https://github.com/georgemandis/poltergeist/releases/download/v0.2.1/poltergeist-v0.2.1-macos-x86_64.tar.gz"
+      sha256 "220f56a0fee19402ef81f295ea560685fb6122571d8eea989927e979318b2f47"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/georgemandis/poltergeist/releases/download/v0.1.1/poltergeist-v0.1.1-linux-aarch64.tar.gz"
-      sha256 "53786642b25ba25b10d97272cf330b6ad3c44206f2976eae008fc87064620cb2"
+      url "https://github.com/georgemandis/poltergeist/releases/download/v0.2.1/poltergeist-v0.2.1-linux-aarch64.tar.gz"
+      sha256 "22fc41329e0e3e11b29ab9fc5ced3b4312505fa8dcd487bf8e6b53e03f4c0abc"
     else
-      url "https://github.com/georgemandis/poltergeist/releases/download/v0.1.1/poltergeist-v0.1.1-linux-x86_64.tar.gz"
-      sha256 "25df3efb8ce3087f7284ac5d107d5dc161de7a2db668daa2da288ca02f9908f6"
+      url "https://github.com/georgemandis/poltergeist/releases/download/v0.2.1/poltergeist-v0.2.1-linux-x86_64.tar.gz"
+      sha256 "eb719730d68852ca49a221348814d40e800bcd87f4ad993a1d39be4560eb6207"
     end
 
     depends_on "at-spi2-core"
